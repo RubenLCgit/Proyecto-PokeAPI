@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2? familia= Montserrat:peso@700 &family= Sevillana & display=swap');
+*{
+
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+
+}
+body{
+
+background-image: url(../imagenes/fondo_web.jpg);
+background-size: 100% 100%;
+margin:auto;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+text-align: justify;
+
+}
+
+.cabecera {
+
+	display: flex;
+	min-height: 70px;
+	background-color:lightslategray;
+	justify-content:center;
+	align-items: center;
+	padding: 10px;
+
+}
+
+.cabecera h2{
+
+margin-left: 20px;
+color:rgb(240, 197, 59);
+
+}
+
+.logo{
+
+	display: flex;
+	align-items: center;
+
+}
+
+.logo img{
+
+	height: 50px;
+	margin-right: 10px;
+
+}
+
+a{
+
+	text-decoration: none;
+
+}
+
+.navegador a{ 
+
+	font-family: 'Montserrat';
+	font-weight: 700;
+	color: black;
+	padding-right: 10px;
+	
+}
+
+h1 {
+
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+p {
+
+	font-family: 'Sevillana';
+
+}
+
+.presentacion h1{
+
+	text-align: center;
+	margin-bottom: 5%;
+	font-size:300%;
+	animation-name: parpadeo;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+
+}
+
+
+
+/*FOOTER*/
+
+
+footer{
+
+	margin-top: auto;
+
+}
+
+
+
+.cabecera #logo_footer{
+
+	width: 2%;
+
+}
+
+.PiePag .box_footer{
+
+	display: flex;
+	
+}
+
+.PiePag .cabecera{
+
+	justify-content:space-around;
+	text-align: center;
+
+}
+
+/*CARRUSEL DE IMAGENES*/
+
+.slider-container {
+
+	display: flex;
+	width: 80%;
+	height: 80%;
+	overflow-x: scroll;
+	scroll-snap-type: x proximity;
+	margin: auto;
+	margin-bottom: 10%;
+
+}
+  
+.slider-container img {
+
+	flex: 0 0 100%;
+	width: 80%;
+	object-fit: cover;
+	scroll-snap-align: center;
+	
+}
+
+
+/*DISEÑO RESPONSIVE*/
+
+@media screen and (max-width:840px){
+
+	header{
+
+		flex-direction: column;
+		font-size: small;
+
+	}
+
+}
+
