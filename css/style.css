@@ -5,6 +5,7 @@
 	box-sizing: border-box;
 
 }
+
 body{
 
 	margin:auto;
@@ -42,35 +43,36 @@ color:rgb(240, 197, 59);
 
 .logo img{
 
-	height: 50px;
-	margin-right: 10px;
+	height: 10rem;
 
 }
 
-a{
+.container {
 
-	text-decoration: none;
-
-}
-
-h1 {
-
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	flex-wrap: wrap;
 
 }
 
-.presentacion h1{
+.card {
 
+	background-color: slategray;
+	min-height: 25rem;
+	min-width: 22rem;
+	padding: 1rem;
+	margin: 1%;
+
+}
+
+.list_item {
+    font-size: 1.5rem;
+    padding: 20px;
+    background-color: beige;
+    min-width: 130px;
 	text-align: center;
-	margin-bottom: 5%;
-	font-size:300%;
-	animation-name: parpadeo;
-	animation-duration: 5s;
-	animation-iteration-count: infinite;
-
-}
-
-
+  }
 
 /*FOOTER*/
 
