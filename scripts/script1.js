@@ -63,3 +63,10 @@ window.addEventListener('DOMContentLoaded', (event)=>{
     }
     getListItem();
 });
+
+const itemSearch = new Array[12];
+
+for (let i = 0; i < 12; i++) {
+    const item = document.querySelector('name_item');
+    itemSearch.push(item);
+}

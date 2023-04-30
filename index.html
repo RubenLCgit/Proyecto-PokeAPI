@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
 		<title>Tienda Pokemon | Rubén Lombardo Calvo</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
 		<script src="scripts/script1.js"></script>
 	
@@ -19,9 +19,11 @@
 			</div>
 		</header>
 		<div class="object_finder">
-			<input type="text" id="search" placeholder="Buscar">
-  			<button onclick="searchItems()">Buscar</button>
-  			<ul id="results"></ul>
+			<form class="d-flex" role="search">
+				<span class="badge text-bg-danger">Item finder</span>
+				<input class="form-control me-2" type="text" id="search" placeholder="Item name" aria-label="Search">
+				<a href="details.html" class="btn btn-danger">Search</a>
+			</form>
 		</div>
 		
 		<div class="container"></div>
@@ -48,11 +50,12 @@
 					<div class="redes_sociales">
 
 						<h2 class="redes_sociales">SIGUEME EN</h2>
-						<a href="https://www.facebook.com/rubens.lc.9" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-						<a href="https://twitter.com/andaquereslisto" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-						<a href="https://www.instagram.com/andaquereslisto/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-						<a href="https://es.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-	
+						<div class="social">
+							<a href="https://www.facebook.com/rubens.lc.9" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+							<a href="https://twitter.com/andaquereslisto" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+							<a href="https://www.instagram.com/andaquereslisto/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+							<a href="https://es.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+						</div>
 					</div>
 
 				</div>
@@ -61,6 +64,7 @@
 			</div>
 
 		</footer>
+		<script src="bootstrap-5.3.0-alpha3-dist/js/bootstrap.min.js"></script>
 		<script src="https://kit.fontawesome.com/d72315cfd6.js" crossorigin="anonymous"></script>
 	</body>
 	

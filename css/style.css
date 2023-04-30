@@ -26,6 +26,7 @@ body{
 	justify-content:center;
 	align-items: center;
 	padding: 10px;
+	border-bottom: 2px solid red;
 
 }
 
@@ -43,7 +44,7 @@ body{
 }
 
 .object_finder{
-	text-align: center;
+	margin: 5%;
 }
 
 .container {
@@ -112,6 +113,10 @@ p.effect_item{
 p.japones_item{
 	margin-top: 10%;
 	background-color:#ffcd0581;
+}
+
+.social{
+	text-align: center;
 }
 
 /*FOOTER*/
