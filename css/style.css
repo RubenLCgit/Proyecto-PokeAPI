@@ -7,44 +7,43 @@
 }
 
 body{
-
 	margin:auto;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	text-align: justify;
-
+	background-image: url('../imagenes/fondoPagina2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-.cabecera {
+.header {
 
 	display: flex;
 	min-height: 70px;
-	background-color:lightslategray;
+	background: linear-gradient(180deg, #F04E51 50%, #F0F0F0 50%);
 	justify-content:center;
 	align-items: center;
 	padding: 10px;
 
 }
 
-.cabecera h2{
-
-margin-left: 20px;
-color:rgb(240, 197, 59);
-
-}
-
-.logo{
+.log{
 
 	display: flex;
 	align-items: center;
 
 }
 
-.logo img{
+.log img{
 
 	height: 10rem;
 
+}
+
+.object_finder{
+	text-align: center;
 }
 
 .container {
@@ -53,29 +52,81 @@ color:rgb(240, 197, 59);
 	justify-content: center;
     align-items: center;
 	flex-wrap: wrap;
-
+	margin-top: 5%;
+	margin-bottom: 5%;
+	
 }
 
 .card {
 
-	background-color: slategray;
-	min-height: 25rem;
-	min-width: 22rem;
+	background: linear-gradient(180deg, #F04E51 50%, #F0F0F0 50%);
+	min-height: 370px;
+	min-width: 370px;
+	max-width: 20px;
 	padding: 1rem;
-	margin: 1%;
+	margin: 5%;
+	border-radius: 5%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.75) 10px 10px 5px 0px;
 
 }
 
-.list_item {
+
+
+.name_item {
     font-size: 1.5rem;
-    padding: 20px;
-    background-color: beige;
-    min-width: 130px;
+    padding: 3%;
+    background-color: black;
+    min-width: 230px;
+	height: 50px;
 	text-align: center;
-  }
+	border-radius: 5%;
+}
+
+img.img_item{
+
+	width: 40%;
+
+}
+
+a.name_item{
+	color: #F0F0F0;
+}
+
+.div_category{
+	margin-top: 5%;
+}
+
+p.category_item{
+	margin-top: 10%;
+	background-color:rgba(66, 185, 66, 0.514);
+}
+
+p.effect_item{
+	margin-top: 10%;
+	background-color:rgba(40, 40, 216, 0.521);
+}
+
+p.japones_item{
+	margin-top: 10%;
+	background-color:#ffcd0581;
+}
 
 /*FOOTER*/
 
+.footer {
+
+	display: flex;
+	min-height: 70px;
+	background-color: #F04E51;
+	color:#F0F0F0;
+	justify-content:space-around;
+	align-items: center;
+	padding: 10px;
+
+}
 
 footer{
 
@@ -83,25 +134,10 @@ footer{
 
 }
 
-
-
-.cabecera #logo_footer{
-
-	width: 2%;
-
-}
-
 .PiePag .box_footer{
 
 	display: flex;
 	
-}
-
-.PiePag .cabecera{
-
-	justify-content:space-around;
-	text-align: center;
-
 }
 
 /*DISEÑO RESPONSIVE*/
