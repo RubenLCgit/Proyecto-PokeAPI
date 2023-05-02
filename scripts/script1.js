@@ -18,7 +18,8 @@ window.addEventListener('DOMContentLoaded', (event)=>{
             const pokeItem_list = document.querySelector('#pokeItem_list'+i);
 
             const link = document.createElement('a');
-            link.setAttribute('href', "details.html");
+            const idItem = list2.id;
+            link.setAttribute('href', "details.html?id="+idItem);
             link.classList.add('name_item');
             pokeItem_list.appendChild(link);
             link.innerText = (list2.name).toUpperCase();
@@ -64,9 +65,4 @@ window.addEventListener('DOMContentLoaded', (event)=>{
     getListItem();
 });
 
-const itemSearch = new Array[12];
-
-for (let i = 0; i < 12; i++) {
-    const item = document.querySelector('name_item');
-    itemSearch.push(item);
-}
+console.log(arrayPromises);

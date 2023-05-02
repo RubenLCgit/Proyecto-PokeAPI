@@ -1,17 +1,16 @@
 *{
 
-	padding: 0;
+
 	margin: 0;
 	box-sizing: border-box;
 
 }
 
 body{
-	margin:auto;
+
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	text-align: justify;
 	background-image: url('../imagenes/fondoPagina2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,6 +28,17 @@ body{
 	border-bottom: 2px solid red;
 
 }
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+	text-decoration-color: black;
+	background-color: #F0F0F0;
+}
+
 
 .log{
 
@@ -49,12 +59,12 @@ body{
 
 .container {
 
+	min-width: 100%;
 	display: flex;
 	justify-content: center;
     align-items: center;
 	flex-wrap: wrap;
-	margin-top: 5%;
-	margin-bottom: 5%;
+	margin: 0;
 	
 }
 
@@ -86,6 +96,10 @@ body{
 	border-radius: 5%;
 }
 
+.name_item:hover{
+	color: black;
+}
+
 img.img_item{
 
 	width: 40%;
@@ -97,7 +111,7 @@ a.name_item{
 }
 
 .div_category{
-	margin-top: 5%;
+	margin-top: 100px;
 }
 
 p.category_item{
@@ -112,6 +126,7 @@ p.effect_item{
 
 p.japones_item{
 	margin-top: 10%;
+	margin-bottom: 10%;
 	background-color:#ffcd0581;
 }
 
@@ -145,6 +160,69 @@ footer{
 	
 }
 
+/*CSS DETAILS*/
+
+.itemDetail{
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	flex-wrap: wrap;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.bigCard{
+	background: linear-gradient(180deg, #F04E51 40%, #F0F0F0 40%);
+	min-height: 90%;
+	min-width: 90%;
+	padding: 1rem;
+	margin: 5%;
+	border-radius: 5%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.75) 10px 10px 5px 0px;
+}
+
+.nameDetail_item {
+    font-size: 1.5rem;
+    padding: 3%;
+    background-color:#F0F0F0;
+    min-width: 230px;
+	height: 50px;
+	text-align: center;
+	border-radius: 5%;
+}
+
+h1{
+	color:#F04E51;
+	margin-bottom: 10px;
+}
+
+.description_item{
+	color: #F0F0F0;
+}
+
+img.imgDetail_item{
+
+	margin-top: 60px;
+	width: 5%;
+
+}
+
+p.underline{
+	text-decoration: underline;
+	margin-bottom: 10px;
+}
+
+.features{
+	border: #F04E51 solid 5px;
+	padding: 10px;
+	border-radius: 10%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
 /*DISEÑO RESPONSIVE*/
 
 @media screen and (max-width:840px){
@@ -156,5 +234,10 @@ footer{
 
 	}
 
-}
+	img.imgDetail_item{
 
+		margin-top: 100px;
+		width: 10%;
+	
+	}
+}
