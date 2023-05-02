@@ -46,9 +46,23 @@ window.addEventListener('DOMContentLoaded', (event)=>{
         createItemShopPokemon(listResult);
     }
 
-    const createItemShopPokemon = (list) => {
-        
+    const createItemShopPokemon = async (list) => {
+
         const container = document.querySelector('.itemDetail');
+
+        let randomNumber = Math.floor(Math.random() * 20+1);
+        let list0 = await callAPI(`https://pokeapi.co/api/v2/pokemon/`+randomNumber);
+        console.log(list0);
+        const pokeImage0 = document.createElement('div');
+        container.appendChild(pokeImage0);
+        pokeImage0.setAttribute('class','pokeImage');
+        const img0 = document.createElement('img');
+        img0.classList.add('imgPokemon');
+        pokeImage0.appendChild(img0);
+        img0.setAttribute('src',list0.sprites.front_default);
+        img0.setAttribute('alt',list.name);
+        
+        
         const pokeItem = document.createElement('div');
         container.appendChild(pokeItem);
         pokeItem.setAttribute('class','bigCard');
@@ -146,6 +160,19 @@ window.addEventListener('DOMContentLoaded', (event)=>{
         }else{
             paragraph8.innerHTML = (list.effect_entries[0].effect).toUpperCase();
         }
+
+        randomNumber = Math.floor(Math.random() * 20+1);
+        let list3 = await callAPI(`https://pokeapi.co/api/v2/pokemon/`+randomNumber);
+        console.log(list3);
+        const pokeImage = document.createElement('div');
+        container.appendChild(pokeImage);
+        pokeImage.setAttribute('class','pokeImage');
+        const img2 = document.createElement('img');
+        img2.classList.add('imgPokemon');
+        pokeImage.appendChild(img2);
+        img2.setAttribute('src',list3.sprites.front_default);
+        img2.setAttribute('alt',list.name);
+        
     }
     fetchItem();
 });
