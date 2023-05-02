@@ -7,13 +7,40 @@ window.addEventListener('DOMContentLoaded', (event)=>{
         return Id;
     }
 
+    const getIdForName = async () => {//Metodo que recibe el nombre introducido en el buscador de la página principal y localiza y devuelve el id que tiene asignado en la pokeAPI
+        const nameItemSearch = window.location.search;
+        const urlNameParams = new URLSearchParams(nameItemSearch);
+        const name = urlNameParams.get('name');
+        let list = await callAPI(`https://pokeapi.co/api/v2/item?limit=100000&offset=0`);
+        let urlItem;
+        list.results.forEach(element => {
+            if(element.name==name){
+                urlItem=element.url;
+            }
+        });
+        list = await callAPI(urlItem);
+        const idNameItem = list.id;
+        return idNameItem;
+    }
+
+    const callAPI = async (url) => {
+        const result = await fetch(url);
+        const listResult = await result.json();
+        return listResult;
+    }
+
     const fetchItem = async () => {
         await getListItem();
     }
-
-    //Metodo para hacer llamadas a la API
-    const getListItem = async () => {
-        const url = 'https://pokeapi.co/api/v2/item/'+getId();
+    const getListItem = async () => {//Metodo que asigna el id correcto a la llamada a la api ya sea obteniendolo, del nombre introducido en el buscador o de enlace de un item, de la pagina principal.
+        let id;
+        let url;
+        if(getId()!=null){
+            id = await getId();
+        }else{
+            id = await getIdForName();
+        }
+        url = 'https://pokeapi.co/api/v2/item/'+id;
         const result = await fetch(url);
         const listResult = await result.json();
         createItemShopPokemon(listResult);
@@ -31,14 +58,17 @@ window.addEventListener('DOMContentLoaded', (event)=>{
         const item = document.createElement('h1');
         item.classList.add('nameDetail_item');
         pokeItem_list.appendChild(item)
-        item.innerText = (list.name).toUpperCase();
+        item.innerText = (list.name);
 
         const paragraph1 = document.createElement('p');
         pokeItem.appendChild(paragraph1);
         paragraph1.classList.add('description_item');
         pokeItem.appendChild(paragraph1);
-        paragraph1.innerHTML = (list.flavor_text_entries[0].text).toUpperCase();
-
+        if(list.flavor_text_entries.length === 0){//Al no tener este tipo de información disponible para todos los items de la api, se usa este condicional para que en el caso de que no cuente con él, muestre un mensaje y permita al código seguir ejecutandose.
+            paragraph1.innerText = ('NO INFORMATION AVAILABLE');
+        }else{
+            paragraph1.innerText = (list.flavor_text_entries[0].text).toUpperCase();
+        }
         const img = document.createElement('img');
         img.classList.add('imgDetail_item');
         pokeItem_list.appendChild(img);
@@ -66,7 +96,14 @@ window.addEventListener('DOMContentLoaded', (event)=>{
         pokeItem2.appendChild(paragraph4);
         paragraph4.classList.add('japones_item');
         pokeItem2.appendChild(paragraph4);
-        paragraph4.innerHTML = ('<strong>nombre japonés: &#x21D2;</strong>'+list.names[8].name).toUpperCase();
+        let numJap;
+        list.names.forEach((item,index) => {/*Como el idioma japonés no se encuentre en la misma posicion del array names de la base de datos para todos los Items, busco el ese idioma en para localizar su index para cada objeto*/
+            let lang= item.language.name
+            if(lang=='ja'){
+                numJap=index;
+            }
+        });
+        paragraph4.innerHTML = ('<strong>nombre japonés: &#x21D2;</strong>'+list.names[numJap].name).toUpperCase();
 
         const bigCard = document.querySelector('.bigCard');
         const atributes = document.createElement('div');
@@ -83,7 +120,7 @@ window.addEventListener('DOMContentLoaded', (event)=>{
             const paragraph6 = document.createElement('p');
             paragraph6.classList.add('Atrib');
             atributes.appendChild(paragraph6);
-            paragraph6.innerText = ("No cuenta con ningún atributo").toUpperCase();
+            paragraph6.innerText = ("NO INFORMATION AVAILABLE").toUpperCase();
         }else{
             atributeItem.forEach((item,index) => {
                 const paragraph6 = document.createElement('p');
@@ -104,8 +141,11 @@ window.addEventListener('DOMContentLoaded', (event)=>{
         const paragraph8 = document.createElement('p');
         effects.appendChild(paragraph8);
         paragraph8.classList.add('listEffects');
-        paragraph8.innerHTML = (list.effect_entries[0].effect).toUpperCase();
-        
+        if(list.effect_entries.length === 0){
+            paragraph8.innerText = ('NO INFORMATION AVAILABLE');
+        }else{
+            paragraph8.innerHTML = (list.effect_entries[0].effect).toUpperCase();
+        }
     }
     fetchItem();
 });

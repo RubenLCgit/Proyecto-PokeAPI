@@ -111,7 +111,7 @@ a.name_item{
 }
 
 .div_category{
-	margin-top: 100px;
+	margin-top: 170px;
 }
 
 p.category_item{
@@ -213,6 +213,10 @@ img.imgDetail_item{
 p.underline{
 	text-decoration: underline;
 	margin-bottom: 10px;
+}
+
+p.description_item{
+	text-align: center;
 }
 
 .features{

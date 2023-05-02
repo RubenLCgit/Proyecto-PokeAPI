@@ -1,13 +1,11 @@
 window.addEventListener('DOMContentLoaded', (event)=>{
     
-    //Metodo para hacer llamadas a la API
     const getListItem = async () => {
         const listItems = async (i) => {
-            const randomNumber = Math.floor(Math.random() * 100) + i;
+            const randomNumber = Math.floor(Math.random() * 100) + i;//Genera un número aleatorio para mostrar diferentes Items
             const url2 =`https://pokeapi.co/api/v2/item/${randomNumber}`;
             const result2 = await fetch(url2);
             const listResult2 = await result2.json();
-            console.log(listResult2);
             let list2 = listResult2;
 
             const container = document.querySelector('.container');
@@ -51,7 +49,14 @@ window.addEventListener('DOMContentLoaded', (event)=>{
             pokeItem2.appendChild(paragraph4);
             paragraph4.classList.add('japones_item');
             pokeItem2.appendChild(paragraph4);
-            paragraph4.innerHTML = ('<strong>nombre japonés: &#x21D2;</strong>'+list2.names[8].name).toUpperCase();
+            let numJap;
+            list2.names.forEach((item,index) => {/*Como el idioma japonés no se encuentre en la misma posicion del array names de la base de datos para todos los Items, busco el ese idioma en para localizar su index para cada objeto*/
+                let lang= item.language.name
+                if(lang=='ja'){
+                    numJap=index;
+                }
+            });
+            paragraph4.innerHTML = ('<strong>nombre japonés: &#x21D2;</strong>'+list2.names[numJap].name).toUpperCase();
         }
 
         const arrayPromises = new Array;
@@ -59,10 +64,8 @@ window.addEventListener('DOMContentLoaded', (event)=>{
         for (let i = 0; i < 12; i++) {
             arrayPromises.push(listItems(i));
         }
-        await Promise.all(arrayPromises);
+        await Promise.all(arrayPromises);//Metodo usado para evitar un gran retardo que ocurria al cargar los Items en la pagina princila.
         
     }
     getListItem();
 });
-
-console.log(arrayPromises);
